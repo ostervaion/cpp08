@@ -5,24 +5,29 @@
 int main(void)
 {
 	std::cout << "=== Span Class Tests ===" << std::endl;
-
-	// Test 1: Basic functionality
-	std::cout << "\n--- Test 1: Basic span with 5 elements ---" << std::endl;
-	Span sp = Span(5);
-	sp.addNumber(6);
-	sp.addNumber(3);
-	sp.addNumber(17);
-	sp.addNumber(9);
-	sp.addNumber(11);
-	std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
-	std::cout << "Longest span: " << sp.longestSpan() << std::endl;
-
-	// Test 2: Single element (should throw)
-	std::cout << "\n--- Test 2: Single element ---" << std::endl;
-	Span sp2 = Span(1);
-	sp2.addNumber(42);
 	try
 	{
+		// Test 1: Basic functionality
+		std::cout << "\n--- Test 1: Basic span with 5 elements ---" << std::endl;
+		Span sp = Span(5);
+		sp.addNumber(6);
+		sp.addNumber(3);
+		sp.addNumber(17);
+		sp.addNumber(9);
+		sp.addNumber(11);
+		std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
+		std::cout << "Longest span: " << sp.longestSpan() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "Error: " << e.what() << '\n';
+	}
+	// Test 2: Single element (should throw)
+	try
+	{
+		std::cout << "\n--- Test 2: Single element ---" << std::endl;
+		Span sp2 = Span(1);
+		sp2.addNumber(42);
 		std::cout << sp2.shortestSpan() << std::endl;
 	}
 	catch (const std::exception& e)
@@ -62,7 +67,5 @@ int main(void)
 	{
 		std::cerr << e.what() << '\n';
 	}
-	
-
 	return (0);
 }

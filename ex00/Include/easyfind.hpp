@@ -1,16 +1,17 @@
 #pragma once
 
 #include <exception>
+#include <algorithm>
 
 template <typename T>
-int easyfind(const T &container, const int index);
+typename T::iterator easyfind(const T &container, const int index);
 
-class OutOfBoundsException : public std::exception
+class NumberNotFound : public std::exception
 {
 	public:
 		const char *what() const throw()
 		{
-			return ("Out of Bounds Exception");
+			return ("Number not found exception");
 		}
 };
 #include "easyfind.tpp"
