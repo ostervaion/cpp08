@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 NAME	= span
-FLAGS	= -Wall -Wextra -Werror -std=c++98 -I Include -glldb
+FLAGS	= -Wall -Wextra -Werror -std=c++98 -I Include
 SRC_DIR = srcs/
 SRCS	= $(SRC_DIR)main.cpp $(SRC_DIR)Span.cpp
 OBJS	= $(SRCS:.cpp=.o)
