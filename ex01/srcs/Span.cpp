@@ -38,6 +38,13 @@ void	Span::addNumber(const int num)
 		throw NoSpaceLeftInSpanException();
 }
 
+void	Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end)
+{
+	if (_list.size() + std::distance(begin, end) > _max)
+		throw NoSpaceLeftInSpanException();
+	_list.insert(_list.end(), begin, end);
+}
+
 int	Span::shortestSpan()
 {
 	int	prev = 0;
@@ -45,51 +52,24 @@ int	Span::shortestSpan()
 
 	if (_list.size() < 2)
 		throw NoSpanFoundException();
-	std::vector<int> aux = _list;
-	std::sort(aux.begin(), aux.end());
-	std::vector<int>::iterator iter = aux.begin();
-	prev = *iter;
-	iter++;
-	span = *iter - prev;
-	prev = *iter;
-	iter++;
+	std::sort(_list.begin(), _list.end());
+	span = _list[1] - _list[0];
+	prev = _list[1];
 	for (unsigned long i = 2; i < _list.size() ; i++)
 	{
-		if (*iter - prev < span)
-			span = *iter - prev;
-		prev = *iter;
-		iter++;
+		if (_list[i] - prev < span)
+			span = _list[i] - prev;
+		prev = _list[i];
 	}
 	return (span);
 }
 
 int	Span::longestSpan()
 {
-	int	smallest = 0;
-	int largest	 = 0;
-
 	if (_list.size() < 2)
 		throw NoSpanFoundException();
-	std::vector<int>::iterator iter =_list.begin();
-	smallest = *iter;
-	iter++;
-	if (*iter >= smallest)
-		largest = *iter;
-	else
-	{
-		largest = smallest;
-		smallest = *iter;
-	}
-	iter++;
-	for (unsigned long i = 2; i < _list.size() ; i++)
-	{
-		if (smallest > *iter)
-			smallest = *iter;
-		else if(largest < *iter)
-			largest = *iter;
-		iter++;
-	}
-	return (largest - smallest);
+	std::sort(_list.begin(), _list.end());
+	return (_list.back() - _list.front());
 }
 
 const char *Span::NoSpaceLeftInSpanException::what() const throw()

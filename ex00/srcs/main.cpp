@@ -13,8 +13,8 @@ int main()
 		v.push_back(2);
 		v.push_back(3);
 		v.push_back(4);
-		std::cout << easyfind(v, 0) << std::endl;
-		std::cout << easyfind(v, 10) << std::endl;
+		std::cout << *easyfind(v, 4) << std::endl;
+		std::cout << *easyfind(v, 10) << std::endl;
 	}
 	catch(const std::exception& e)
 	{
@@ -27,8 +27,8 @@ int main()
 		dq.push_back(2);
 		dq.push_back(3);
 		dq.push_back(4);
-		std::cout << easyfind(dq, 1) << std::endl;
-		std::cout << easyfind(dq, 10) << std::endl;
+		std::cout << *easyfind(dq, 1) << std::endl;
+		std::cout << *easyfind(dq, 10) << std::endl;
 	}
 	catch(const std::exception& e)
 	{
@@ -41,8 +41,8 @@ int main()
 		lt.push_back(2);
 		lt.push_back(3);
 		lt.push_back(4);
-		std::cout << easyfind(lt, 2) << std::endl;
-		std::cout << easyfind(lt, 10) << std::endl;
+		std::cout << *easyfind(lt, 2) << std::endl;
+		std::cout << *easyfind(lt, 10) << std::endl;
 	}
 	catch(const std::exception& e)
 	{

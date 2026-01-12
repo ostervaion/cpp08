@@ -19,6 +19,7 @@ class Span
 		void	addNumber(const int num);
 		template<typename T>
 		void	addNumber(T begin, T end);
+		void	addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end);
 		int	shortestSpan();
 		int	longestSpan();
 
